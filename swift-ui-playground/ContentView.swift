@@ -8,9 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    let languages = ["Swift", "Java", "Go", "JavaScript"]
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List{
+            ForEach(languages, id: \.self) { index in
+                EachRowList(title: "Hello!", description: "from \(index)" )
+            }
+        }
+    }
+}
+
+struct EachRowList:View {
+    var title:String
+    var description:String
+    var body: some View {
+        VStack(alignment: .leading){
+            Text(title)
+            Text(description)
+        }
     }
 }
 
